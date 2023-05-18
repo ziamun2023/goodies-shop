@@ -1,8 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../contextProvider/AuthProvider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Signin = () => {
     const {userSignin}=useContext(AuthContext)
+    const navigate=useNavigate()
+    const location=useLocation()
+    const from=location.state?.from?.pathname || '/';
 
 
     // const [error,setError]=useState('')
@@ -26,6 +30,7 @@ const Signin = () => {
         const userLogged=result.user
         console.log(userLogged)
         // handleSave()
+        navigate(from, {replace:true})
       
        })
       .catch((error) => {
@@ -47,32 +52,8 @@ const Signin = () => {
 
  
     
-    <div className="form-control">
-      <label className="label">
-        <span className="label-text">Name</span>
-      </label>
-          
-
-      {/* <div>
-      <input type="file" onChange={handleImageChange} accept="image/*" />
-
-  {selectedImage && (
-    <div>
-      <img src={imageURL} alt="Selected" width="200" height="200" />
-    </div>
-  )}
-
-  </div> */}
-  {/* <button onClick={handleSave}>Save Profile Picture</button> */}
+   
   
-    
-    </div>
-    {/* <div className="form-control">
-      <label className="label">
-        <span className="label-text">Name</span>
-      </label>
-      <input type="text" name='name' placeholder="Name" className="input input-bordered" />
-    </div> */}
     <div className="form-control">
       <label className="label">
         <span className="label-text">Email</span>
@@ -94,6 +75,7 @@ const Signin = () => {
     </div>
   </form>
   {/* <p className='text-red-800'>{error}</p> */}
+  <p className='my-1'><b>New to JoyCar?</b> <Link to='/signup'> Register now !</Link></p>
 </div>
 </div>
 </div>

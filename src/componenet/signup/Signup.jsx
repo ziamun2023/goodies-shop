@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../contextProvider/AuthProvider';
 
-
+import { Link } from 'react-router-dom';
 
 // import firebase  from 'firebase/app';
 // import 'firebase/auth';
@@ -152,6 +152,7 @@ const Signup = () => {
         </div>
       </form>
       <p className='text-red-800'>{error}</p>
+      <p className='my-1'><b>Already have an account?</b> <Link to='/signin'> Log in !</Link></p>
     </div>
   </div>
 </div>
