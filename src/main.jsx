@@ -9,6 +9,10 @@ import {
 import Home from './componenet/home/Home.jsx';
 import Signin from './componenet/signin/Signin.jsx';
 import Signup from './componenet/signup/Signup.jsx';
+import AuthProvider from './contextProvider/AuthProvider.jsx';
+import Mytoys from './componenet/mytoys/Mytoys.jsx';
+import PrivateRoute from './privateROute/PrivateRoute.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -26,6 +30,10 @@ const router = createBrowserRouter([
       {
         path:'/signup',
         element:<Signup/>
+      },
+      {
+        path:'/mytoys',
+        element:<PrivateRoute><Mytoys/></PrivateRoute>
       }
     ]
   },
@@ -34,6 +42,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+   <AuthProvider>  <RouterProvider router={router} /></AuthProvider>
   </React.StrictMode>,
 )

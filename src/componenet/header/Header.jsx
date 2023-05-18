@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import img6 from '../../../public/pexels-nikita-nikitin-15057238.jpg'
+import { AuthContext } from '../../contextProvider/AuthProvider';
 
 const Header = () => {
+
+
+    const {user,userLogout}=useContext(AuthContext)
+    console.log(user)
     return (
         <div>
            <div className="navbar bg-base-100">
@@ -16,12 +21,12 @@ const Header = () => {
     
         <li><a>All toys</a></li>
       <li><a>Blogs</a></li>
-      <li><a>Register</a></li>
+      <Link to='/signup' ><li><a>register</a></li></Link>
       <li><a><div className="dropdown dropdown-bottom">
   <label tabIndex={0} className="">My toys</label>
   <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
     <li><a>Add a new toy</a></li>
-    <li><a>My toys</a></li>
+    <Link to='/mytoys' ><li><a>My toys</a></li></Link>
   </ul>
 </div>  </a></li>
       </ul>
@@ -34,41 +39,45 @@ const Header = () => {
   
       <li><a>All toys</a></li>
       <li><a>Blogs</a></li>
-      <li><a>Register</a></li>
+      <Link to='/signup' ><li><a>register</a></li></Link>
       <li><a><div className="dropdown dropdown-bottom">
   <label tabIndex={0} className="">My toys</label>
   <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
   <li><a>Add a new toy</a></li>
-    <li><a>My toys</a></li>
+    <Link to='/mytoys' ><li><a>My toys</a></li></Link>
   </ul>
 </div></a></li>
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Sign in</a>
+ {
+    !user &&  <div className="navbar-end">
+   <Link to='/signin'> <a className="btn">Sign in</a></Link>
 
   </div>
-  <div className="dropdown dropdown-end">
+ }
+ {
+    user &&  <div className="dropdown dropdown-end">
     
-      <div className="tooltip mx-2" data-tip="hello">
-  <button className="btn btn-square rounded-full"><div className="avatar online">
-  <div className="w-12 rounded-full">
-    <img src={img6} />
-  </div>
+    <div className="tooltip mx-2" data-tip="hello">
+<button className="btn btn-square rounded-full"><div className="avatar online">
+<div className="w-12 rounded-full">
+  <img src={img6} />
+</div>
 </div></button>
 </div>
-      
-      <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
-      </ul>
-    </div>
+    
+    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+      <li>
+        <a className="justify-between">
+          Profile
+          <span className="badge">New</span>
+        </a>
+      </li>
+      <li><a>Settings</a></li>
+      <li><button onClick={userLogout}>Logout</button></li>
+    </ul>
+  </div>
+ }
   </div>
 </div> 
      
