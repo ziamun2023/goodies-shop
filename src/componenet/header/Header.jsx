@@ -19,16 +19,15 @@ const Header = () => {
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><a><Link to='/home'>Home</Link></a></li>
     
-        <li><a>All toys</a></li>
+        <Link to='/alltoys'> <li><a>All toys</a></li></Link>
       <li><a>Blogs</a></li>
+      {
+        user && <>
+         <Link to='/mytoybooked' ><li><a>My toys</a></li></Link>
+      <Link to='/bookNewTOy' ><li><a>Add Toys</a></li></Link></>
+     }
       <Link to='/signup' ><li><a>register</a></li></Link>
-      <li><a><div className="dropdown dropdown-bottom">
-  <label tabIndex={0} className="">My toys</label>
-  <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-    <li><a>Add a new toy</a></li>
-    <Link to='/mytoys' ><li><a>My toys</a></li></Link>
-  </ul>
-</div>  </a></li>
+    
       </ul>
     </div>
     <a className="btn btn-ghost normal-case text-xl">JoyCar</a>
@@ -37,16 +36,15 @@ const Header = () => {
     <ul className="menu menu-horizontal px-1">
     <li><a><Link to='/home'>Home</Link></a></li>
   
-      <li><a>All toys</a></li>
+      <Link to='/alltoys'> <li><a>All toys</a></li></Link>
       <li><a>Blogs</a></li>
+     {
+        user && <>
+         <Link to='/mytoybooked' ><li><a>My toys</a></li></Link>
+      <Link to='/bookNewTOy' ><li><a>Add Toys</a></li></Link></>
+     }
       <Link to='/signup' ><li><a>register</a></li></Link>
-      <li><a><div className="dropdown dropdown-bottom">
-  <label tabIndex={0} className="">My toys</label>
-  <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-  <li><a>Add a new toy</a></li>
-    <Link to='/mytoys' ><li><a>My toys</a></li></Link>
-  </ul>
-</div></a></li>
+     
     </ul>
   </div>
  {
