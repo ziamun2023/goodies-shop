@@ -17,6 +17,7 @@ import Alltoys from './componenet/alltoys/Alltoys.jsx';
 import Bookings from './componenet/bookings/Bookings.jsx';
 // import BookService from './componenet/Bookings/BookService.jsx';
 import AddToy from './componenet/mytoys/AddToy.jsx';
+import IndividualDetails from './componenet/alltoys/IndividualDetails.jsx';
 
 // import Checkout from './componenet/chechout/AddToy.jsx';
 // import Bookings from './componenet/bookings/Bookings.jsx';
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
         path:'/signin',
         element:<Signin/>
       },
+    
       {
         path:'/signup',
         element:<Signup/>
@@ -48,7 +50,14 @@ const router = createBrowserRouter([
       {
         path:'/bookNewTOy',
         element:<PrivateRoute><AddToy/></PrivateRoute>
+      },  
+      
+      {
+        path:'/toydetails/:id',
+        element:<PrivateRoute><IndividualDetails/></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5173/toydetails/${params.id}`)
       },
+      
       
 
     

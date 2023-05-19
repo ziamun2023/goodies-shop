@@ -1,16 +1,38 @@
     import React, { useEffect, useState } from 'react';
 // import TableRow from '../mytoys/TableRow';
 import AlltoyTableRow from './AlltoyTableRow';
+// import { stringify } from 'postcss';
     
     const Alltoys = () => {
  const [alldata,setAlldata]=useState([])
- console.log(alldata)
+//  const [products, setProducts] = useState([]);
+//  const [searchTerm, setSearchTerm] = useState("");
+ 
+
+
+ const [search,setSearch]=useState('')
+
+//  console.log(alldata)
         useEffect(()=>{
             fetch('http://localhost:5000/bookings')
             .then(res=>res.json())
               .then(data=>setAlldata(data))
             //   console.log(data)
         },[])
+
+        const searchtext=(e)=>{
+            const texts=e.target.value
+            // const string= stringify(texts)
+            setSearch(texts)
+        }
+
+     const handleSearch=()=>{
+     
+            fetch(`http://localhost:5000/bookings/${search}`)
+            .then(res=>res.json())
+            .then(data=>setAlldata(data))
+   
+     }
        
 // const allMYtoys=useLoaderData()
 // console.log(allMYtoys)
@@ -23,6 +45,7 @@ import AlltoyTableRow from './AlltoyTableRow';
         return (
             <div>
              <h1 className="text-5xl font-bold text-center">My Toys</h1>
+             <div><input onChange={searchtext} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" /><button onClick={handleSearch}  className='btn'>search</button></div>
              <div className="overflow-x-auto w-full">
   <table className="table w-full">
   <thead>
@@ -45,7 +68,7 @@ import AlltoyTableRow from './AlltoyTableRow';
   
     
  {
-     alldata.map(item=><AlltoyTableRow key={item._id} item={item}></AlltoyTableRow>)  
+     alldata.map((item,index)=><AlltoyTableRow key={item._id} index={index} item={item}></AlltoyTableRow>)  
  }
      
     
