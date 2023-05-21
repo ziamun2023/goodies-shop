@@ -6,10 +6,10 @@ import img4 from '../../../public/pexels-igor-photic-3801089.jpg'
 import img5 from '../../../public/pexels-karen-laårk-boshoff-7489746.jpg'
 import img6 from '../../../public/pexels-nikita-nikitin-15057238.jpg'
 
-
+// data-aos="zoom-in-down"
 const Banner = () => {
     return (
-        <div>
+        <div  data-aos="zoom-in-down">
                 <h1 className="text-5xl font-bold text-center my-10 ">Photo Galery</h1>
                 <div className="carousel carousel-center rounded-box">
   <div className="carousel-item">

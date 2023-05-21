@@ -12,7 +12,7 @@ import app from '../../firebase/firebase.config';
 
 const Signup = () => {
   const [photo, setPhoto] = useState(null);
-
+const [userp,setUserp]=useState('')
   const handlePhotoChange = (e) => {
     const selectedFile = e.target.files[0];
     setPhoto(selectedFile);
@@ -35,7 +35,7 @@ const Signup = () => {
     const googleProvider= new GoogleAuthProvider()
 
 
-    const {createUserProfile}=useContext(AuthContext)
+    const {createUserProfile,setUser}=useContext(AuthContext)
 
 
     const [error,setError]=useState('')
@@ -61,6 +61,11 @@ const Signup = () => {
        const password=form.password.value;
        const confirm=form.confirm.value;
        const email=form.email.value;
+       const photo2=userp
+       if (photo) {
+        // Upload the photo to the server or perform any necessary operations
+        setUserp(photo);
+      }
     
        console.log(name,password,email,confirm)
        
