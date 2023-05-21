@@ -9,7 +9,7 @@ import img6 from '../../../public/pexels-nikita-nikitin-15057238.jpg'
 // data-aos="zoom-in-down"
 const Banner = () => {
     return (
-        <div  data-aos="zoom-in-down">
+        <div >
                 <h1 className="text-5xl font-bold text-center my-10 ">Photo Galery</h1>
                 <div className="carousel carousel-center rounded-box">
   <div className="carousel-item">

@@ -6,7 +6,7 @@ const TabCards = ({item}) => {
     return (
         <div>
             <div className="card w-96  bg-neutral-500 shadow-xl">
-  <figure><img src={pphoto} alt="Shoes" /></figure>
+  <figure><img className=' w-20 h-20' src={pphoto} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">
       Shoes!
