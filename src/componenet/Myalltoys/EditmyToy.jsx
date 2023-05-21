@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 const EditmyToy = () => {
+    const navigate=useNavigate()
     const [alldata,setAlldata]=useState([])
     // console.log(alldata)
         useEffect(()=>{
-            fetch('http://localhost:5000/allToys')
+            fetch('https://cartoy-server.vercel.app/allToys')
             .then(res=>res.json())
             .then(data=>setAlldata(data))
         },[])
@@ -37,7 +39,7 @@ const handleUpdate=(event)=>{
 
 
 
-    fetch(`http://localhost:5000/updateToys/${id}`,{
+    fetch(`https://cartoy-server.vercel.app/updateToys/${id}`,{
         method: "PUT",
         headers: {'Content-Type':'application/json'},
         body : JSON.stringify(chaged)
@@ -45,8 +47,16 @@ const handleUpdate=(event)=>{
     .then(res=>res.json())
     .then(data=>{
         if(data.modifiedCount>0){
-            alert ('changed')
-        }
+            Swal.fire({
+              title: 'success!',
+              text: 'Successfully Updated',
+              icon: 'success',
+              confirmButtonText: 'Cool'
+            })
+            navigate('/mytoys')
+          
+           }
+        
     })
 }
 

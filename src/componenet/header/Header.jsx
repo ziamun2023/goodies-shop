@@ -1,15 +1,20 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import img6 from '../../../public/pexels-nikita-nikitin-15057238.jpg'
+import  { useContext } from 'react';
+
+// import img6 from '../../../public/pexels-nikita-nikitin-15057238.jpg'
 import { AuthContext } from '../../contextProvider/AuthProvider';
 
+import React from 'react';
+import { Link} from 'react-router-dom';
+
+
+
 const Header = () => {
-
-
-    const {user,userLogout}=useContext(AuthContext)
-    console.log(user)
+ 
+ const {user,userLogout}=useContext(AuthContext)
+ 
     return (
         <div>
+
            <div className="navbar bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
@@ -21,11 +26,11 @@ const Header = () => {
     
         <Link to='/allToy'> <li><a>All toys</a></li></Link>
         <Link to='/blogs'> <li><a>Blogs</a></li></Link>
-   
+        <Link to='/addnewtoy' ><li><a>Add Toys</a></li></Link>
         {
         user?.email ? <>
          <Link to='/mytoys' ><li><a>My toys</a></li></Link>
-      <Link to='/addnewtoy' ><li><a>Add Toys</a></li></Link></>:
+    </>:
          <Link to='/signup' ><li><a>register</a></li></Link>
      }
     
@@ -39,10 +44,11 @@ const Header = () => {
   
       <Link to='/allToy'> <li><a>All toys</a></li></Link>
       <Link to='/blogs'> <li><a>Blogs</a></li></Link>
+      <Link to='/addnewtoy' ><li><a>Add Toys</a></li></Link>
      {
         user?.email ? <>
          <Link to='/mytoys' ><li><a>My toys</a></li></Link>
-      <Link to='/addnewtoy' ><li><a>Add Toys</a></li></Link></>:
+    </>:
          <Link to='/signup' ><li><a>register</a></li></Link>
      }
    
@@ -58,10 +64,10 @@ const Header = () => {
  {
     user &&  <div className="dropdown dropdown-end">
     
-    <div className="tooltip mx-2" data-tip="hello">
+    <div className="tooltip mx-2" data-tip={user?.displayName}>
 <button className="btn btn-square rounded-full"><div className="avatar online">
 <div className="w-12 rounded-full">
-  <img src={img6} />
+  <img src={user?.photoURL} />
 </div>
 </div></button>
 </div>
@@ -79,6 +85,8 @@ const Header = () => {
   </div>
  }
   </div>
+
+
 </div> 
      
     );

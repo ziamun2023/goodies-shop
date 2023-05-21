@@ -4,6 +4,14 @@ import { useState } from 'react'
 import './App.css'
 import Header from './componenet/header/Header'
 import { Outlet } from 'react-router-dom'
+import Footer from './componenet/Footer/Footer'
+// import React from 'react';
+
+// import App from './App';
+import React, { useEffect } from 'react';
+
+
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +20,8 @@ function App() {
     <>
   <Header/>
   <Outlet/>
+  <Footer/>
+
     </>
   )
 }

@@ -14,7 +14,7 @@ const Mytoys = () => {
     //     .then(res=>res.json())
     //     .then(data=>console.log(data))
     // },[])
-    const url = `http://localhost:5000/private?email=${user?.email}`;
+    const url = `https://cartoy-server.vercel.app/private?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -34,7 +34,7 @@ const Mytoys = () => {
           cancelButtonText: 'Cancel'
         }).then(result => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:5000/delete/${id}`, {
+            fetch(`https://cartoy-server.vercel.app/delete/${id}`, {
               method: 'DELETE'
             })
               .then(res => res.json())

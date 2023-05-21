@@ -6,7 +6,7 @@ const DetailsView = () => {
     const [alldata,setAlldata]=useState([])
 // console.log(alldata)
     useEffect(()=>{
-        fetch('http://localhost:5000/allToys')
+        fetch('https://cartoy-server.vercel.app/allToys')
         .then(res=>res.json())
         .then(data=>setAlldata(data))
     },[])

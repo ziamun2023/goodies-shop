@@ -35,7 +35,7 @@ const BannerFirst = () => {
   </div>
 </div>
     <div>
-      <h1 className="text-5xl font-bold  text-start">Welcome to Toy Land</h1>
+      <h1 className="text-5xl font-bold  text-start">Welcome to <span className='text-yellow-300'>Toy Land</span></h1>
       <p className="py-6 text-start">Welcome to our amazing car toy website! Here, you will find the most fantastic and exciting selection of cars, trucks, and other vehicles your child will love. All our products are carefully handpicked to ensure the best quality and durability, making them perfect for endless hours of fun. Whether your child loves racing, adventure, or imaginative play, we have everything they need to explore their passion. Come and visit us now to discover our fantastic range of car toys!</p>
      <div className='flex justify-items-start'> <button className="btn btn-primary ">Get Started</button></div>
     </div>

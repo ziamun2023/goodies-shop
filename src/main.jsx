@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import {
   createBrowserRouter,
+  Router,
   RouterProvider,
 } from "react-router-dom";
 import Home from './componenet/home/Home.jsx';
@@ -17,6 +18,8 @@ import Mytoys from './componenet/Myalltoys/Mytoys.jsx';
 import EditmyToy from './componenet/Myalltoys/EditmyToy.jsx';
 import Blogs from './componenet/blogs/Blogs.jsx';
 import PrivateRoute from './privateROute/PrivateRoute.jsx';
+import ErrorHandle from './componenet/errorfile/ErrorHandle.jsx';
+
 // import DetailsView from './componenet/AllToys/DetailsView.jsx';
 // import PrivateRoute from './privateROute/PrivateRoute.jsx';
 
@@ -25,6 +28,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:<App/>,
+    errorElement:<ErrorHandle/>, 
     children:[
       {
         path:'/home',
@@ -41,8 +45,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/addnewtoy',
-        element:<AddNewToy/>
-      }
+        element:<PrivateRoute><AddNewToy/>
+      </PrivateRoute>}
       ,
       {
         path:'/allToy',
@@ -63,6 +67,11 @@ const router = createBrowserRouter([
       {
         path:'/blogs',
         element:<Blogs/>
+      },
+      {
+        path:'/*',
+        element:<ErrorHandle/>
+  
       }
       
   
@@ -83,6 +92,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <AuthProvider>  <RouterProvider router={router} /></AuthProvider>
+<AuthProvider> <RouterProvider router={router} /></AuthProvider>
   </React.StrictMode>,
 )

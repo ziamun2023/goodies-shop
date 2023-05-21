@@ -10,6 +10,7 @@ import img6 from '../../../public/pexels-nikita-nikitin-15057238.jpg'
 const Banner = () => {
     return (
         <div>
+                <h1 className="text-5xl font-bold text-center my-10 ">Photo Galery</h1>
                 <div className="carousel carousel-center rounded-box">
   <div className="carousel-item">
     <img className='h-96' src={img1} alt="Pizza" />

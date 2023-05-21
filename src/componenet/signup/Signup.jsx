@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../contextProvider/AuthProvider';
-
+const auth = getAuth(app);
 import { Link } from 'react-router-dom';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
 
 // import firebase  from 'firebase/app';
 // import 'firebase/auth';
@@ -9,6 +11,12 @@ import { Link } from 'react-router-dom';
 // import groovyWalkAnimation from "../../../public/106680-login-and-sign-up.json";
 
 const Signup = () => {
+  const [photo, setPhoto] = useState(null);
+
+  const handlePhotoChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setPhoto(selectedFile);
+  };
     // const [selectedImage, setSelectedImage] = useState(null);
     // const [imageURL, setImageURL] = useState('');
     // const handleImageChange =(event) => {
@@ -23,12 +31,26 @@ const Signup = () => {
     //       }
     // };
 
+    // const githubProvider=new GithubAuthProvider()
+    const googleProvider= new GoogleAuthProvider()
+
 
     const {createUserProfile}=useContext(AuthContext)
 
 
     const [error,setError]=useState('')
-    
+    const handleGoogleSignup=()=>{
+      signInWithPopup(auth,googleProvider)
+      .then(result=>{
+          const loggedwithgoogle=result.user
+          console.log(loggedwithgoogle)
+          setUser(loggedwithgoogle)
+          navigate(from,{replace: true} )
+      })
+      .catch(error=>{
+          console.log(error)
+      })
+   }
     
 
 
@@ -99,8 +121,9 @@ const Signup = () => {
         
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Name</span>
+            <span className="label-text">Photo url</span>
           </label>
+          <input type="file" onChange={handlePhotoChange} />
               
 
           {/* <div>
@@ -152,6 +175,7 @@ const Signup = () => {
         </div>
       </form>
       <p className='text-red-800'>{error}</p>
+      <div><button onClick={handleGoogleSignup} className='btn'>Google Signup</button></div>
       <p className='my-1'><b>Already have an account?</b> <Link to='/signin'> Log in !</Link></p>
     </div>
   </div>
