@@ -19,14 +19,15 @@ const Header = () => {
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><a><Link to='/home'>Home</Link></a></li>
     
-        <Link to='/alltoys'> <li><a>All toys</a></li></Link>
-      <li><a>Blogs</a></li>
-      {
-        user && <>
-         <Link to='/mytoybooked' ><li><a>My toys</a></li></Link>
-      <Link to='/bookNewTOy' ><li><a>Add Toys</a></li></Link></>
+        <Link to='/allToy'> <li><a>All toys</a></li></Link>
+        <Link to='/blogs'> <li><a>Blogs</a></li></Link>
+   
+        {
+        user?.email ? <>
+         <Link to='/mytoys' ><li><a>My toys</a></li></Link>
+      <Link to='/addnewtoy' ><li><a>Add Toys</a></li></Link></>:
+         <Link to='/signup' ><li><a>register</a></li></Link>
      }
-      <Link to='/signup' ><li><a>register</a></li></Link>
     
       </ul>
     </div>
@@ -36,14 +37,15 @@ const Header = () => {
     <ul className="menu menu-horizontal px-1">
     <li><a><Link to='/home'>Home</Link></a></li>
   
-      <Link to='/alltoys'> <li><a>All toys</a></li></Link>
-      <li><a>Blogs</a></li>
+      <Link to='/allToy'> <li><a>All toys</a></li></Link>
+      <Link to='/blogs'> <li><a>Blogs</a></li></Link>
      {
-        user && <>
-         <Link to='/mytoybooked' ><li><a>My toys</a></li></Link>
-      <Link to='/bookNewTOy' ><li><a>Add Toys</a></li></Link></>
+        user?.email ? <>
+         <Link to='/mytoys' ><li><a>My toys</a></li></Link>
+      <Link to='/addnewtoy' ><li><a>Add Toys</a></li></Link></>:
+         <Link to='/signup' ><li><a>register</a></li></Link>
      }
-      <Link to='/signup' ><li><a>register</a></li></Link>
+   
      
     </ul>
   </div>

@@ -7,12 +7,7 @@ const AuthProvider = ({children}) => {
 
     const [details,setDetails]=useState([])
 
-    useEffect(()=>{
-        fetch('http://localhost:5000/bookings')
-        .then(res=>res.json())
-          .then(data=>setDetails(data))
-        //   console.log(data)
-    },[])
+ 
 
     const [user,setUser]=useState(null)
     const [loading,setLoading]=useState(true)

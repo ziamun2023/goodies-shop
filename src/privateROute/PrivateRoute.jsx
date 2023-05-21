@@ -7,10 +7,10 @@ const PrivateRoute = ({children}) => {
     const {user,loading}=useContext(AuthContext)
    
     if(loading){
-        return <p>loading</p> 
+        return <progress className="progress w-56"></progress>
 
     }
-    if(user){
+    if(user?.email){
         return children
     }
     

@@ -10,21 +10,17 @@ import Home from './componenet/home/Home.jsx';
 import Signin from './componenet/signin/Signin.jsx';
 import Signup from './componenet/signup/Signup.jsx';
 import AuthProvider, { AuthContext } from './contextProvider/AuthProvider.jsx';
-// import Mytoys from './componenet/mytoys/Mytoys.jsx';
-import PrivateRoute from './privateROute/PrivateRoute.jsx';
-// import AddNewToy from './componenet/mytoys/AddNewToy.jsx';
+import AddNewToy from './componenet/addNewToy/AddNewToy.jsx';
 import Alltoys from './componenet/alltoys/Alltoys.jsx';
-import Bookings from './componenet/bookings/Bookings.jsx';
-// import BookService from './componenet/Bookings/BookService.jsx';
-import AddToy from './componenet/mytoys/AddToy.jsx';
-import IndividualDetails from './componenet/alltoys/IndividualDetails.jsx';
+import DetailsView from './componenet/AllToys/DetailsView.jsx';
+import Mytoys from './componenet/Myalltoys/Mytoys.jsx';
+import EditmyToy from './componenet/Myalltoys/EditmyToy.jsx';
+import Blogs from './componenet/blogs/Blogs.jsx';
+import PrivateRoute from './privateROute/PrivateRoute.jsx';
+// import DetailsView from './componenet/AllToys/DetailsView.jsx';
+// import PrivateRoute from './privateROute/PrivateRoute.jsx';
 
-// import Checkout from './componenet/chechout/AddToy.jsx';
-// import Bookings from './componenet/bookings/Bookings.jsx';
-// import AddToy from './componenet/bookings/AddToy.jsx';
-// import AddToy from './componenet/chechout/Checkout.jsx';
 
-// const {user}=useContext(AuthContext)
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,29 +40,41 @@ const router = createBrowserRouter([
         element:<Signup/>
       },
       {
-        path:'/mytoybooked',
-        element:<PrivateRoute><Bookings/></PrivateRoute>
+        path:'/addnewtoy',
+        element:<AddNewToy/>
+      }
+      ,
+      {
+        path:'/allToy',
+        element:<Alltoys/>
       },
       {
-        path:'/bookNewTOy',
-        element:<PrivateRoute><AddToy/></PrivateRoute>
-      },  
-      
-      {
-        path:'/toydetails/:id',
-        element:<PrivateRoute><IndividualDetails/></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5173/toydetails/${params.id}`)
+        path:'/mytoys',
+        element:<PrivateRoute><Mytoys/></PrivateRoute>
       },
+      {
+        path:'/editMytoy/:id',
+        element:<EditmyToy/>
+      },
+      {
+        path:"/viewFetails/:id",
+        element:<DetailsView></DetailsView>
+      },
+      {
+        path:'/blogs',
+        element:<Blogs/>
+      }
       
+  
+      
+      
+    
       
 
     
      
      
-      {
-        path:'/alltoys',
-        element:<Alltoys/>
-      }
+ 
     
     ]
   },
