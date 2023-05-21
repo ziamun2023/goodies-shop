@@ -18,13 +18,14 @@ const AddNewToy = () => {
         const form =event.target
         const sellerName=form.sellerName.value
         const email=form.email.value
+        const pphoto=form.pphoto.value
         const productName=form.productName.value
         const category=selectedOption
         const price=parseInt(form.price.value)
         const quantity=form.quantity.value
         const description=form.description.value
         const Ratings=form.Ratings.value
-        const order={sellerName,email,productName,category,price,quantity,description,Ratings}
+        const order={sellerName,email,pphoto,productName,category,price,quantity,description,Ratings}
 
 console.log(order)
 
@@ -79,6 +80,14 @@ console.log(order)
     
   </label>
   <input type="text" placeholder="Type here" name='productName' className="input input-bordered w-full max-w-xs" />
+
+</div>
+<div className="form-control w-full max-w-xs">
+  <label className="label">
+    <span className="label-text">photo url</span>
+    
+  </label>
+  <input type="text" placeholder="Type here" name='pphoto' className="input input-bordered w-full max-w-xs" />
 
 </div>
 <div className="form-control w-full max-w-xs">

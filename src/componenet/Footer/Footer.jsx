@@ -5,6 +5,7 @@ const Footer = () => {
         <div>
             <footer className="footer p-10 bg-base-300 text-base-content">
   <div>
+  <img className='rounded-full lg:w-14 sm: w-5 ' src="../../../public/Joy.jpg" alt="" />
     <span className="footer-title">Services: Home delivery</span> 
     <a className="link link-hover">Branding</a> 
     <a className="link link-hover">Toy Design</a> 

@@ -11,27 +11,8 @@ import app from '../../firebase/firebase.config';
 // import groovyWalkAnimation from "../../../public/106680-login-and-sign-up.json";
 
 const Signup = () => {
-  const [photo, setPhoto] = useState(null);
-const [userp,setUserp]=useState('')
-  const handlePhotoChange = (e) => {
-    const selectedFile = e.target.files[0];
-    setPhoto(selectedFile);
-  };
-    // const [selectedImage, setSelectedImage] = useState(null);
-    // const [imageURL, setImageURL] = useState('');
-    // const handleImageChange =(event) => {
-    //     const file = event.target.files[0];
-    //     setSelectedImage(file);
-    //     if (file) {
-    //         const reader = new FileReader();
-    //         reader.onload = () => {
-    //           setImageURL(reader.result);
-    //         };
-    //         reader.readAsDataURL(file);
-    //       }
-    // };
 
-    // const githubProvider=new GithubAuthProvider()
+  
     const googleProvider= new GoogleAuthProvider()
 
 
@@ -61,11 +42,7 @@ const [userp,setUserp]=useState('')
        const password=form.password.value;
        const confirm=form.confirm.value;
        const email=form.email.value;
-       const photo2=userp
-       if (photo) {
-        // Upload the photo to the server or perform any necessary operations
-        setUserp(photo);
-      }
+       const photoUrl=form.photoUrl.value
     
        console.log(name,password,email,confirm)
        
@@ -116,7 +93,7 @@ const [userp,setUserp]=useState('')
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <p className="py-6"></p>
       {/* <Lottie style={{width:400}} className='mx-auto ' animationData={groovyWalkAnimation} loop={true} />  */}
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -128,7 +105,7 @@ const [userp,setUserp]=useState('')
           <label className="label">
             <span className="label-text">Photo url</span>
           </label>
-          <input type="file" onChange={handlePhotoChange} />
+          <input  className="input input-bordered" type="text" name='photoUrl' />
               
 
           {/* <div>

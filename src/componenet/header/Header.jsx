@@ -36,7 +36,7 @@ const Header = () => {
     
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl">JoyCar</a>
+    <img className='rounded-full lg:w-14 sm: w-5 ' src="../../../public/Joy.jpg" alt="" />  <a className="btn btn-ghost normal-case text-xl">JoyCar</a> 
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

@@ -31,6 +31,8 @@ const DetailsView = () => {
 <p className='text-start'><span className='font-medium tracking-wide mx-5 '></span>quantity <span className='font-normal tracking-wide text-zinc-400'>{findOneData?.quantity}</span></p>
 <p className='text-start'><span className='font-medium tracking-wide mx-5 '>description</span> <span className='font-normal tracking-wide text-zinc-400'>{findOneData?.description}</span></p>
 <p className='text-start'><span className='font-medium tracking-wide mx-5 '></span>Ratings <span className='font-normal tracking-wide text-zinc-400'>{findOneData?.Ratings}</span></p>
+<img className='  w-20 h-24' src={findOneData?.pphoto} alt="" />
+<p className='text-start'><small className=''>photo will be appeared if added in "add toy section"</small></p>
 
 
             
