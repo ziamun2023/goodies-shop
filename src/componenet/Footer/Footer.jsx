@@ -17,7 +17,7 @@ const Footer = () => {
     <a className="link link-hover">About us</a> 
     <a className="link link-hover">Contact</a> 
     <a className="link link-hover">Jobs opportunity</a> 
-    <a className="link link-hover">Logistics</a>
+    <a className="link link-hover">Logisticcs</a>
   </div> 
   <div>
     <span className="footer-title">Social</span> 
